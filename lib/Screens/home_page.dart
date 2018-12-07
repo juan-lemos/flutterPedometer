@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../Widgets/Card.dart' as CustomCard show Card;
+import '../Widgets/CustomCard.dart' show CustomCard;
 // import 'package:me_suite/constants/colors.dart';
 // import 'package:me_suite/containers/auth_button/toolbar_button_signout_container.dart';
 
@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget {
           actions: [
             // new ToolbarLogOutButton(),
           ]),
-      body: new Container(child: CustomCard.Card()),
+      body: new Container(child: CustomCard()),
     );
   }
 }
