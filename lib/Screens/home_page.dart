@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../Widgets/CustomCard.dart' show CustomCard;
 import '../Widgets/CircularPorogress.dart';
+import '../Widgets/MainProgressText.dart';
 import 'package:flutter_pedometer/Constans/colors.dart' as CustomColors;
 // import 'package:me_suite/containers/auth_button/toolbar_button_signout_container.dart';
 
@@ -25,16 +26,7 @@ class HomePage extends StatelessWidget {
           width: screenWidth,
           child: CustomCard(
             child: CircularPorogress(
-                height: 200,
-                child: Text(
-                  '25,000',
-                  style: TextStyle(
-                    color: CustomColors.white,
-                    fontSize: 30,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.w600,
-                  ),
-                )),
+                height: 200, child: MainProgressText(25000, 100000)),
           ),
         ));
   }
