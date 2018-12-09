@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget {
           actions: [
             // new ToolbarLogOutButton(),
           ]),
-      body: new Container(child: CustomCard()),
+      body: new Container(child: CustomCard(child: new Text('data'))),
     );
   }
 }
