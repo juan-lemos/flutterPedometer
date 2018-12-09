@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pedometer/Constans/colors.dart' as Colors;
+import 'package:flutter_pedometer/Constans/colors.dart' as CustomColors;
 
 class CustomCard extends StatelessWidget {
   final Widget child;
@@ -10,10 +10,13 @@ class CustomCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         margin: const EdgeInsets.only(left: 8, right: 8),
-        color: Colors.mainColor,
+        color: CustomColors.mainColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
         child: Padding(
           padding: EdgeInsets.all(8.0),
-          child: Card(child: this.child),
+          child: Container(child: child),
         ));
   }
 }

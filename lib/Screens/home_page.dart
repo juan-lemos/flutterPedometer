@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../Widgets/CustomCard.dart' show CustomCard;
-// import 'package:me_suite/constants/colors.dart';
+import '../Widgets/CircularPorogress.dart';
+import 'package:flutter_pedometer/Constans/colors.dart' as CustomColors;
 // import 'package:me_suite/containers/auth_button/toolbar_button_signout_container.dart';
 
 class HomePage extends StatelessWidget {
@@ -10,15 +11,31 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return new Scaffold(
-      appBar: new AppBar(
-          // backgroundColor: MeSuiteColors.blue,
-          automaticallyImplyLeading: false,
-          title: new Text(this.title),
-          actions: [
-            // new ToolbarLogOutButton(),
-          ]),
-      body: new Container(child: CustomCard(child: new Text('data'))),
-    );
+        appBar: new AppBar(
+            // backgroundColor: MeSuiteColors.blue,
+            automaticallyImplyLeading: false,
+            title: new Text(this.title),
+            actions: [
+              // new ToolbarLogOutButton(),
+            ]),
+        body: new Container(
+          width: screenWidth,
+          child: CustomCard(
+            child: CircularPorogress(
+                height: 200,
+                child: Text(
+                  '25,000',
+                  style: TextStyle(
+                    color: CustomColors.white,
+                    fontSize: 30,
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.w600,
+                  ),
+                )),
+          ),
+        ));
   }
 }
