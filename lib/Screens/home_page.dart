@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../Widgets/CustomCard.dart' show CustomCard;
-import '../Widgets/CircularPorogress.dart';
-import '../Widgets/MainProgressText.dart';
-import 'package:flutter_pedometer/Constans/colors.dart' as CustomColors;
-// import 'package:me_suite/containers/auth_button/toolbar_button_signout_container.dart';
+// import '../Widgets/CircularPorogress.dart';
+// import '../Widgets/MainProgressText.dart';
+// import 'package:flutter_pedometer/Constans/colors.dart' as CustomColors;
+import '../Widgets/SparkBar.dart';
 
 class HomePage extends StatelessWidget {
   final String title;
@@ -23,11 +23,12 @@ class HomePage extends StatelessWidget {
               // new ToolbarLogOutButton(),
             ]),
         body: new Container(
-          width: screenWidth,
-          child: CustomCard(
-            child: CircularPorogress(
-                height: 200, child: MainProgressText(25000, 100000)),
-          ),
-        ));
+            width: screenWidth,
+            child: CustomCard(child: SparkBar.withSampleData(), height: 300)
+            // child: CustomCard(
+            //   child: CircularPorogress(
+            //       height: 200, child: MainProgressText(25000, 100000)),
+            // ),
+            ));
   }
 }

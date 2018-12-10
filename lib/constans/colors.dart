@@ -6,4 +6,3 @@ const Color mainColor = Color(0xFFFF7043);
 const Color completeColor = Color(0xFF36688D);
 const Color incompleteColor = Color(0xFFECEFF1);
 const Color white = Color(0xFFFFFFFF);
-// const Color clickablesColor = Color(0xFF34515E);// user icon

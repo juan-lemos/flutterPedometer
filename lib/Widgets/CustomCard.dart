@@ -3,8 +3,9 @@ import 'package:flutter_pedometer/Constans/colors.dart' as CustomColors;
 
 class CustomCard extends StatelessWidget {
   final Widget child;
+  final double height;
 
-  CustomCard({this.child});
+  CustomCard({this.child, this.height});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,10 @@ class CustomCard extends StatelessWidget {
         ),
         child: Padding(
           padding: EdgeInsets.all(8.0),
-          child: Container(child: child),
+          child: Container(
+            child: child,
+            height: this.height,
+          ),
         ));
   }
 }
