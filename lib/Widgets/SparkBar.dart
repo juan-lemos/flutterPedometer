@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter_pedometer/Constans/colors.dart' as CustomColors;
+import 'package:flutter_pedometer/Constans/fonts.dart' as Fonts;
 import '../Utils/Colors.dart';
 
-/// Example of a Spark Bar by hiding both axis, reducing the chart margins.
 class SparkBar extends StatelessWidget {
   final List<charts.Series> seriesList;
   final bool animate;
@@ -13,7 +13,6 @@ class SparkBar extends StatelessWidget {
   factory SparkBar.withSampleData() {
     return new SparkBar(
       _createSampleData(),
-      // Disable animations for image tests.
       animate: true,
     );
   }
@@ -23,22 +22,18 @@ class SparkBar extends StatelessWidget {
     return new charts.BarChart(
       seriesList,
       animate: animate,
-
-      /// Assign a custom style for the measure axis.
-      ///
-      /// The NoneRenderSpec only draws an axis line (and even that can be hidden
-      /// with showAxisLine=false).
       primaryMeasureAxis:
           new charts.NumericAxisSpec(renderSpec: new charts.NoneRenderSpec()),
 
-      /// This is an OrdinalAxisSpec to match up with BarChart's default
-      /// ordinal domain axis (use NumericAxisSpec or DateTimeAxisSpec for
-      /// other charts).
       domainAxis: new charts.OrdinalAxisSpec(
-          // Make sure that we draw the domain axis line.
           showAxisLine: true,
-          // But don't draw anything else.
-          renderSpec: new charts.NoneRenderSpec()),
+          renderSpec: new charts.SmallTickRendererSpec(
+              labelStyle: new charts.TextStyleSpec(
+                  fontSize: 12, // size in Pts.
+                  color: colorToChartColor(CustomColors.white),
+                  fontFamily: Fonts.mainFont),
+              lineStyle: new charts.LineStyleSpec(
+                  thickness: 2, color: colorToChartColor(CustomColors.white)))),
 
       // With a spark chart we likely don't want large chart margins.
       // 1px is the smallest we can make each margin.

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pedometer/Constans/colors.dart' as CustomColors;
+import 'package:flutter_pedometer/Constans/fonts.dart' as Fonts;
 import 'package:intl/intl.dart';
 
 class MainProgressText extends StatelessWidget {
@@ -21,7 +22,7 @@ class MainProgressText extends StatelessWidget {
           style: TextStyle(
             color: CustomColors.white,
             fontSize: 30,
-            fontFamily: 'Montserrat',
+            fontFamily: Fonts.mainFont,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -33,7 +34,7 @@ class MainProgressText extends StatelessWidget {
           style: TextStyle(
             color: CustomColors.white,
             fontSize: 13,
-            fontFamily: 'Montserrat',
+            fontFamily: Fonts.mainFont,
           ),
           textAlign: TextAlign.center,
         )

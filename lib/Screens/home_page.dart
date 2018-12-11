@@ -23,12 +23,14 @@ class HomePage extends StatelessWidget {
               // new ToolbarLogOutButton(),
             ]),
         body: new Container(
-            width: screenWidth,
-            child: CustomCard(child: SparkBar.withSampleData(), height: 300)
-            // child: CustomCard(
-            //   child: CircularPorogress(
-            //       height: 200, child: MainProgressText(25000, 100000)),
-            // ),
-            ));
+          width: screenWidth,
+          child: CustomCard(
+            child: Container(
+              child: SparkBar.withSampleData(),
+              height: 100,
+            ),
+          ),
+          height: 300,
+        ));
   }
 }
