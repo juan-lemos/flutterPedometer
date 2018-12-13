@@ -27,7 +27,9 @@ class HomePage extends StatelessWidget {
           child: CustomCard(
             child: Container(
               child: SparkBar.withSampleData(),
-              height: 100,
+              padding:
+                  EdgeInsets.only(left: 47, right: 47, bottom: 34, top: 30),
+              // height: 100,
             ),
           ),
           height: 300,

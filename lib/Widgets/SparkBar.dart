@@ -26,14 +26,18 @@ class SparkBar extends StatelessWidget {
           new charts.NumericAxisSpec(renderSpec: new charts.NoneRenderSpec()),
 
       domainAxis: new charts.OrdinalAxisSpec(
-          showAxisLine: true,
-          renderSpec: new charts.SmallTickRendererSpec(
-              labelStyle: new charts.TextStyleSpec(
-                  fontSize: 12, // size in Pts.
-                  color: colorToChartColor(CustomColors.white),
-                  fontFamily: Fonts.mainFont),
-              lineStyle: new charts.LineStyleSpec(
-                  thickness: 2, color: colorToChartColor(CustomColors.white)))),
+        showAxisLine: true,
+        renderSpec: new charts.SmallTickRendererSpec(
+          labelStyle: new charts.TextStyleSpec(
+              fontSize: 12, // size in Pts.
+              color: colorToChartColor(CustomColors.white),
+              fontFamily: Fonts.mainFont),
+          lineStyle: new charts.LineStyleSpec(
+              thickness: 2, color: colorToChartColor(CustomColors.white)),
+          labelOffsetFromAxisPx: 15,
+          // axisLineStyle:
+        ),
+      ),
 
       // With a spark chart we likely don't want large chart margins.
       // 1px is the smallest we can make each margin.
@@ -58,8 +62,12 @@ class SparkBar extends StatelessWidget {
       new OrdinalSales('2026', 5000),
       new OrdinalSales('2027', 4500),
       new OrdinalSales('2028', 4300),
-      new OrdinalSales('2090', 8000),
-      new OrdinalSales('2030', 4300),
+      // new OrdinalSales('2029', 8000),
+      // new OrdinalSales('2030', 4300),
+      // new OrdinalSales('2031', 8000),
+      // new OrdinalSales('2032', 4300),
+      // new OrdinalSales('2033', 8000),
+      // new OrdinalSales('2034', 4300),
     ];
 
     return [
