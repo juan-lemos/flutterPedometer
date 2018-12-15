@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
               // height: 100,
             ),
           ),
-          height: 300,
+          height: 150,
         ));
   }
 }

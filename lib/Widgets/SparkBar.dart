@@ -19,37 +19,35 @@ class SparkBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final staticTicks = <charts.TickSpec<String>>[
+      new charts.TickSpec(
+        '2019',
+        label: 'Year 2014',
+      )
+    ];
+
     return new charts.BarChart(
       seriesList,
       animate: animate,
       primaryMeasureAxis:
           new charts.NumericAxisSpec(renderSpec: new charts.NoneRenderSpec()),
-
       domainAxis: new charts.OrdinalAxisSpec(
         showAxisLine: true,
         renderSpec: new charts.SmallTickRendererSpec(
           labelStyle: new charts.TextStyleSpec(
-              fontSize: 12, // size in Pts.
+              fontSize: 12,
               color: colorToChartColor(CustomColors.white),
               fontFamily: Fonts.mainFont),
           lineStyle: new charts.LineStyleSpec(
               thickness: 2, color: colorToChartColor(CustomColors.white)),
           labelOffsetFromAxisPx: 15,
-          // axisLineStyle:
+          tickLengthPx: 0,
         ),
+        tickProviderSpec: new charts.StaticOrdinalTickProviderSpec(staticTicks),
       ),
-
-      // With a spark chart we likely don't want large chart margins.
-      // 1px is the smallest we can make each margin.
-      layoutConfig: new charts.LayoutConfig(
-          leftMarginSpec: new charts.MarginSpec.fixedPixel(0),
-          topMarginSpec: new charts.MarginSpec.fixedPixel(0),
-          rightMarginSpec: new charts.MarginSpec.fixedPixel(0),
-          bottomMarginSpec: new charts.MarginSpec.fixedPixel(0)),
     );
   }
 
-  /// Create series list with single series
   static List<charts.Series<OrdinalSales, String>> _createSampleData() {
     final globalSalesData = [
       new OrdinalSales('2019', 3500),
@@ -62,30 +60,23 @@ class SparkBar extends StatelessWidget {
       new OrdinalSales('2026', 5000),
       new OrdinalSales('2027', 4500),
       new OrdinalSales('2028', 4300),
-      // new OrdinalSales('2029', 8000),
-      // new OrdinalSales('2030', 4300),
-      // new OrdinalSales('2031', 8000),
-      // new OrdinalSales('2032', 4300),
-      // new OrdinalSales('2033', 8000),
-      // new OrdinalSales('2034', 4300),
     ];
 
     return [
       new charts.Series<OrdinalSales, String>(
         fillColorFn: (_, __) => colorToChartColor(CustomColors.completeColor),
         id: 'Global Revenue',
-        domainFn: (OrdinalSales sales, _) => sales.year,
-        measureFn: (OrdinalSales sales, _) => sales.sales,
+        domainFn: (OrdinalSales sales, _) => sales.label,
+        measureFn: (OrdinalSales sales, _) => sales.number,
         data: globalSalesData,
       ),
     ];
   }
 }
 
-/// Sample ordinal data type.
 class OrdinalSales {
-  final String year;
-  final int sales;
+  final String label;
+  final int number;
 
-  OrdinalSales(this.year, this.sales);
+  OrdinalSales(this.label, this.number);
 }
