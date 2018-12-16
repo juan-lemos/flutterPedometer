@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pedometer/Constans/Colors.dart' as CustomColors;
-import 'package:flutter_pedometer/Constans/Fonts.dart' as Fonts;
+import 'package:flutter_pedometer/Constants/Colors.dart' as CustomColors;
+import 'package:flutter_pedometer/Constants/Fonts.dart' as Fonts;
 import 'package:intl/intl.dart';
 
 class MainProgressText extends StatelessWidget {

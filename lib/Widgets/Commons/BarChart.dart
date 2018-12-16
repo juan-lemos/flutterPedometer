@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
-import 'package:flutter_pedometer/Constans/Colors.dart' as CustomColors;
-import 'package:flutter_pedometer/Constans/Fonts.dart' as Fonts;
+import 'package:flutter_pedometer/Constants/Colors.dart' as CustomColors;
+import 'package:flutter_pedometer/Constants/Fonts.dart' as Fonts;
 import 'package:flutter_pedometer/Utils/Colors.dart';
 
 class BarChart extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pedometer/Constans/Colors.dart' as CustomColors;
+import 'package:flutter_pedometer/Constants/Colors.dart' as CustomColors;
 
 class CustomCard extends StatelessWidget {
   final Widget child;

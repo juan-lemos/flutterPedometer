@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import './Commons/CustomCard.dart';
 import './Commons/CircularPorogress.dart';
-import 'package:flutter_pedometer/Constans/Colors.dart' as CustomColors;
+import 'package:flutter_pedometer/Constants/Colors.dart' as CustomColors;
 import './Commons/MainProgressText.dart';
 
 class DayStepsCard extends StatelessWidget {

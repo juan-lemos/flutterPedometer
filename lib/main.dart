@@ -31,7 +31,7 @@ class MainApp extends StatelessWidget {
 
 //TODO: OLD MAIN
 // import 'package:flutter/material.dart';
-// import 'package:flutter_pedometer/Constans/colors.dart' as colors;
+// import 'package:flutter_pedometer/Constants/colors.dart' as colors;
 
 // void main() => runApp(new MyApp());
 
