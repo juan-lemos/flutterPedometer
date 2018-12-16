@@ -7,7 +7,7 @@ class MainProgressText extends StatelessWidget {
   final int steps;
   final int goalSteps;
 
-  MainProgressText(this.steps, this.goalSteps);
+  MainProgressText({this.steps, this.goalSteps});
 
   @override
   Widget build(BuildContext context) {

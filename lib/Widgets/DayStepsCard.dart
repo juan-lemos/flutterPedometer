@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './Commons/CustomCard.dart';
 import './Commons/CircularPorogress.dart';
 import 'package:flutter_pedometer/Constans/Colors.dart' as CustomColors;
+import './Commons/MainProgressText.dart';
 
 class DayStepsCard extends StatelessWidget {
   @override
@@ -9,15 +10,7 @@ class DayStepsCard extends StatelessWidget {
     return new CustomCard(
       child: CircularPorogress(
           height: 200,
-          child: Text(
-            '25,000',
-            style: TextStyle(
-              color: CustomColors.white,
-              fontSize: 30,
-              fontFamily: 'Montserrat',
-              fontWeight: FontWeight.w600,
-            ),
-          )),
+          child: MainProgressText(goalSteps: 100000, steps: 25000)),
       height: 225,
     );
   }
