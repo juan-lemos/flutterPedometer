@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
-import 'package:flutter_pedometer/Constans/colors.dart' as CustomColors;
-import 'package:flutter_pedometer/Constans/fonts.dart' as Fonts;
+import 'package:flutter_pedometer/Constans/Colors.dart' as CustomColors;
+import 'package:flutter_pedometer/Constans/Fonts.dart' as Fonts;
 import 'package:flutter_pedometer/Utils/Colors.dart';
 
 class BarChart extends StatelessWidget {
@@ -13,7 +13,7 @@ class BarChart extends StatelessWidget {
   factory BarChart(
       {@required List<ChartItem> chartItems,
       @required String seriesId,
-      @required bool renderPrimaryAxis}) {
+      bool renderPrimaryAxis = false}) {
     return new BarChart._(
         transmforToSeriesList(list: chartItems, seriesId: seriesId),
         transformToTickSpeckList(list: chartItems),

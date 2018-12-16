@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pedometer/Widgets/Commons/CustomCard.dart'
     show CustomCard;
-// import 'package:flutter_pedometer/Constans/colors.dart' as CustomColors;
 import 'package:flutter_pedometer/Widgets/DayChartCard.dart';
+import 'package:flutter_pedometer/Widgets/DayStepsCard.dart';
 
 class HomePage extends StatelessWidget {
   final String title;
@@ -21,6 +21,6 @@ class HomePage extends StatelessWidget {
             actions: [
               // new ToolbarLogOutButton(),
             ]),
-        body: new Container(width: screenWidth, child: DayChartCard()));
+        body: new Container(width: screenWidth, child: DayStepsCard()));
   }
 }

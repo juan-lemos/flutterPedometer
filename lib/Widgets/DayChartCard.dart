@@ -13,7 +13,6 @@ class DayChartCard extends StatelessWidget {
             ChartItem(id: '2', amount: 50)
           ],
           seriesId: 'items142',
-          renderPrimaryAxis: true,
         ),
         padding: EdgeInsets.only(left: 20, right: 20, bottom: 5, top: 0),
       ),
