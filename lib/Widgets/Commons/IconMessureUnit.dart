@@ -22,7 +22,7 @@ class IconMessureUnit extends StatelessWidget {
           color: CustomColors.white,
         ),
         Container(
-          height: 15,
+          height: 12,
         ),
         Text(
           this.numberValue,

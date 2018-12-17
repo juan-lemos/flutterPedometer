@@ -12,7 +12,7 @@ class MultipleDataCard extends StatelessWidget {
           child: Row(
             children: <Widget>[
               IconMessureUnit(
-                icon: CustomIcons.Pedometer.fire,
+                icon: Icons.linear_scale,
                 messureUnit: 'Kcal',
                 numberValue: '52,222',
               ),
@@ -22,7 +22,7 @@ class MultipleDataCard extends StatelessWidget {
                 numberValue: '52,222',
               ),
               IconMessureUnit(
-                icon: CustomIcons.Pedometer.fire,
+                icon: Icons.timer,
                 messureUnit: 'Kcal',
                 numberValue: '52,222',
               )
@@ -31,6 +31,6 @@ class MultipleDataCard extends StatelessWidget {
           ),
           padding: EdgeInsets.only(left: 20, right: 20),
         ),
-        height: 225);
+        height: 110);
   }
 }

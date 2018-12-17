@@ -29,7 +29,6 @@ class HomePage extends StatelessWidget {
         body: new Container(
           width: screenWidth,
           child: MultipleDataCard(),
-          height: 150,
         ));
   }
 }
