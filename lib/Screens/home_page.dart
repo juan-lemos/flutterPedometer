@@ -4,6 +4,10 @@ import 'package:flutter_pedometer/Widgets/Commons/CustomCard.dart'
     show CustomCard;
 import 'package:flutter_pedometer/Widgets/DayChartCard.dart';
 import 'package:flutter_pedometer/Widgets/DayStepsCard.dart';
+import 'package:flutter_pedometer/Constants/pedometer_icons.dart'
+    as CustomIcons;
+import 'package:flutter_pedometer/Widgets/Commons/IconMessureUnit.dart';
+import 'package:flutter_pedometer/Widgets/MultipleDataCard.dart';
 
 class HomePage extends StatelessWidget {
   final String title;
@@ -23,21 +27,23 @@ class HomePage extends StatelessWidget {
               // new ToolbarLogOutButton(),
             ]),
         body: new Container(
-            width: screenWidth,
-            child: CustomCard(child: new Icon(Icons.access_alarm)
-                // child: Container(
-                //     margin:
-                //         EdgeInsets.only(left: 8, right: 0, top: 0, bottom: 4),
-                //     alignment: Alignment.centerRight,
-                //     child: new Material(
-                //       color: colors.transparent,
-                //       shape: new CircleBorder(),
-                //       child: new IconButton(
-                //           alignment: Alignment.center,
-                //           icon: new Icon(Icons.access_alarm),
-                //           tooltip: 'list',
-                //           onPressed: () => debugPrint('#debug print')),
-                //     ))
-                )));
+          width: screenWidth,
+          child: MultipleDataCard(),
+          height: 150,
+        ));
   }
 }
+
+// child: Container(
+//     margin:
+//         EdgeInsets.only(left: 8, right: 0, top: 0, bottom: 4),
+//     alignment: Alignment.centerRight,
+//     child: new Material(
+//       color: colors.transparent,
+//       shape: new CircleBorder(),
+//       child: new IconButton(
+//           alignment: Alignment.center,
+//           icon: new Icon(Icons.access_alarm),
+//           tooltip: 'list',
+//           onPressed: () => debugPrint('#debug print')),
+//     ))

@@ -1,45 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pedometer/Constants/Colors.dart' as CustomColors;
 import 'package:flutter_pedometer/Constants/Fonts.dart' as Fonts;
-import 'package:flutter_pedometer/Utils/Formaters.dart';
 
-class MainProgressText extends StatelessWidget {
-  final int steps;
-  final int goalSteps;
+class IconMessureUnit extends StatelessWidget {
+  final IconData icon;
+  final String numberValue;
+  final String messureUnit;
 
-  MainProgressText({this.steps, this.goalSteps});
+  IconMessureUnit(
+      {@required this.icon,
+      @required this.numberValue,
+      @required this.messureUnit});
 
   @override
   Widget build(BuildContext context) {
-    String stepsString = formatNumber(this.steps);
-    String goalStepsString = formatNumber(this.goalSteps);
-
     return Column(
       children: <Widget>[
+        Icon(
+          this.icon,
+          size: 27,
+          color: CustomColors.white,
+        ),
+        Container(
+          height: 15,
+        ),
         Text(
-          stepsString,
+          this.numberValue,
           style: TextStyle(
             color: CustomColors.white,
-            fontSize: 30,
+            fontSize: 20,
             fontFamily: Fonts.mainFont,
             fontWeight: FontWeight.w600,
           ),
         ),
-        Container(
-          height: 5,
-        ),
         Text(
-          '/ $goalStepsString\n Steps',
+          this.messureUnit,
           style: TextStyle(
             color: CustomColors.white,
             fontSize: 13,
             fontFamily: Fonts.mainFont,
           ),
-          textAlign: TextAlign.center,
         )
       ],
       mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
     );
   }
 }
