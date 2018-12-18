@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import './Commons/CustomCard.dart';
-import './Commons/BarChart.dart';
+import 'package:flutter_pedometer/Widgets/Commons/CustomCard.dart';
+import 'package:flutter_pedometer/Widgets/Commons/BarChart.dart';
 
 class DayChartCard extends StatelessWidget {
   @override

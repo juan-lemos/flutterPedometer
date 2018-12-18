@@ -1,13 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pedometer/Constants/Colors.dart' as colors;
-import 'package:flutter_pedometer/Widgets/Commons/CustomCard.dart'
-    show CustomCard;
-import 'package:flutter_pedometer/Widgets/DayChartCard.dart';
-import 'package:flutter_pedometer/Widgets/DayStepsCard.dart';
-import 'package:flutter_pedometer/Constants/pedometer_icons.dart'
-    as CustomIcons;
-import 'package:flutter_pedometer/Widgets/Commons/IconMessureUnit.dart';
-import 'package:flutter_pedometer/Widgets/MultipleDataCard.dart';
+import 'package:flutter_pedometer/Widgets/WeekMonthChartCard.dart';
 
 class HomePage extends StatelessWidget {
   final String title;
@@ -26,10 +18,7 @@ class HomePage extends StatelessWidget {
             actions: [
               // new ToolbarLogOutButton(),
             ]),
-        body: new Container(
-          width: screenWidth,
-          child: MultipleDataCard(),
-        ));
+        body: new Container(width: screenWidth, child: WeekMonthChartCard()));
   }
 }
 

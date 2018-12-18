@@ -4,7 +4,7 @@ import './Commons/IconMessureUnit.dart';
 import 'package:flutter_pedometer/Constants/pedometer_icons.dart'
     as CustomIcons;
 
-class MultipleDataCard extends StatelessWidget {
+class DayResumeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new CustomCard(

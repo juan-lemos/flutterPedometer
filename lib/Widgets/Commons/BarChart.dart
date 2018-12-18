@@ -8,16 +8,20 @@ class BarChart extends StatelessWidget {
   final List<charts.Series> seriesList;
   final List<charts.TickSpec<String>> ticksList;
   final bool renderPrimaryAxis;
-  BarChart._(this.seriesList, this.ticksList, this.renderPrimaryAxis);
+  final int labelOffsetFromAxisPx;
+  BarChart._(this.seriesList, this.ticksList, this.renderPrimaryAxis,
+      this.labelOffsetFromAxisPx);
 
   factory BarChart(
       {@required List<ChartItem> chartItems,
       @required String seriesId,
-      bool renderPrimaryAxis = false}) {
+      bool renderPrimaryAxis = false,
+      int labelOffsetFromAxisPx = 10}) {
     return new BarChart._(
         transmforToSeriesList(list: chartItems, seriesId: seriesId),
         transformToTickSpeckList(list: chartItems),
-        renderPrimaryAxis);
+        renderPrimaryAxis,
+        labelOffsetFromAxisPx);
   }
 
   @override
@@ -48,7 +52,7 @@ class BarChart extends StatelessWidget {
               fontFamily: Fonts.mainFont),
           lineStyle: new charts.LineStyleSpec(
               thickness: 2, color: colorToChartColor(CustomColors.white)),
-          labelOffsetFromAxisPx: 10,
+          labelOffsetFromAxisPx: this.labelOffsetFromAxisPx,
           tickLengthPx: 0,
         ),
         tickProviderSpec: new charts.StaticOrdinalTickProviderSpec(ticksList),
