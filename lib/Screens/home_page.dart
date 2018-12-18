@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pedometer/Widgets/WeekMonthChartCard.dart';
+import 'package:flutter_pedometer/Widgets/DaysResumeCard.dart';
 
 class HomePage extends StatelessWidget {
   final String title;
@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget {
             actions: [
               // new ToolbarLogOutButton(),
             ]),
-        body: new Container(width: screenWidth, child: WeekMonthChartCard()));
+        body: new Container(width: screenWidth, child: DaysResumeCard()));
   }
 }
 

@@ -4,7 +4,7 @@ import 'package:flutter_pedometer/Constants/Fonts.dart' as Fonts;
 import 'package:flutter_pedometer/Widgets/Commons/CustomCard.dart';
 import 'package:flutter_pedometer/Widgets/Commons/BarChart.dart';
 
-class WeekMonthChartCard extends StatelessWidget {
+class DaysChartCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new CustomCard(
