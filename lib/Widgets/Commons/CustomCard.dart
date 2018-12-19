@@ -18,11 +18,7 @@ class CustomCard extends StatelessWidget {
             ),
             child: Padding(
               padding: EdgeInsets.all(8.0),
-              child: Container(
-                alignment: Alignment.center,
-                child: child,
-                height: this.height,
-              ),
+              child: child,
             )),
         height: this.height);
   }

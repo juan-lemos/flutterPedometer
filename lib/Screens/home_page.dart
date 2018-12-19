@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pedometer/Widgets/Commons/CustomCard.dart';
 import 'package:flutter_pedometer/Widgets/DaysResumeCard.dart';
+import 'package:flutter_pedometer/Widgets/Commons/CircularPorogress.dart';
+import 'package:flutter_pedometer/Constants/Colors.dart' as CustomColors;
+import 'package:flutter_pedometer/Constants/Fonts.dart' as Fonts;
 
 class HomePage extends StatelessWidget {
   final String title;
@@ -18,7 +22,27 @@ class HomePage extends StatelessWidget {
             actions: [
               // new ToolbarLogOutButton(),
             ]),
-        body: new Container(width: screenWidth, child: DaysResumeCard()));
+        body: new Container(width: screenWidth, child: DaysResumeCard()
+            //     CustomCard(
+            //   child: ConstrainedBox(
+            //       constraints: BoxConstraints(maxHeight: 60),
+            //       child: FittedBox(
+            //         child: Row(children: [
+            //           Text(
+            //               '25,000 / 10fdsf0,00afjsaldjflajsld jlasj lkajsfkljasdklfj akl0',
+            //               style: TextStyle(
+            //                 color: CustomColors.completeColor,
+            //                 fontSize: 20,
+            //                 fontFamily: Fonts.mainFont,
+            //                 fontWeight: FontWeight.w600,
+            //               )),
+            //           CircularPorogress(height: 70, child: Text('fs')),
+            //         ]),
+            //         fit: BoxFit.contain,
+            //       )),
+            //   height: 200,
+            // ),
+            ));
   }
 }
 
