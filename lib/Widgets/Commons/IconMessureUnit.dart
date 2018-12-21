@@ -24,14 +24,21 @@ class IconMessureUnit extends StatelessWidget {
         Container(
           height: 12,
         ),
-        Text(
-          this.numberValue,
-          style: TextStyle(
-            color: CustomColors.white,
-            fontSize: 20,
-            fontFamily: Fonts.mainFont,
-            fontWeight: FontWeight.w600,
-          ),
+        Container(
+          child: ConstrainedBox(
+              constraints: BoxConstraints(),
+              child: FittedBox(
+                  fit: BoxFit.contain,
+                  child: (Text(
+                    this.numberValue,
+                    style: TextStyle(
+                      color: CustomColors.white,
+                      fontSize: 20,
+                      fontFamily: Fonts.mainFont,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  )))),
+          height: 22,
         ),
         Text(
           this.messureUnit,
