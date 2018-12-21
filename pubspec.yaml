@@ -37,6 +37,11 @@ flutter:
         - asset: fonts/Montserrat-Medium.ttf
         - asset: fonts/Montserrat-SemiBold.ttf
           weight: 600
+    - family: Montserrat
+      fonts:
+        - asset: fonts/Roboto-Medium.ttf
+        - asset: fonts/Roboto-Regular.ttf
+          weight: 500
     - family: Pedometer
       fonts:
         - asset: fonts/Pedometer.ttf
