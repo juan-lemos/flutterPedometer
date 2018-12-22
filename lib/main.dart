@@ -4,6 +4,7 @@ import 'package:flutter_pedometer/routes.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_pedometer/Models/app_state.dart';
 import 'package:flutter_pedometer/Reducers/app_reducer.dart';
+import 'package:flutter/services.dart';
 
 void main() => runApp(new MainApp());
 
@@ -14,6 +15,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
     var store = new Store<AppState>(appReducer,
         initialState: new AppState(), distinct: true, middleware: []);
 
