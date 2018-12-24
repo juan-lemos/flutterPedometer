@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pedometer/Widgets/UserSettingCard.dart';
 import 'package:flutter_pedometer/Widgets/DayChartCard.dart';
 import 'package:flutter_pedometer/Widgets/DayStepsCard.dart';
 import 'package:flutter_pedometer/Widgets/DayResumeCard.dart';
-import 'package:flutter_pedometer/Widgets/Commons/CustomCard.dart';
 import 'package:flutter_pedometer/Constants/Colors.dart' as CustomColors;
 
 class HomePage extends StatelessWidget {
