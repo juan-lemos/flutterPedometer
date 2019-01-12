@@ -72,3 +72,4 @@ build/
 
 #Custom
 /ios
+ios/Runner.xcodeproj/project.pbxproj

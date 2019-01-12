@@ -5,6 +5,10 @@ import 'package:flutter_pedometer/Widgets/DayResumeCard.dart';
 import 'package:flutter_pedometer/Constants/Colors.dart' as CustomColors;
 
 class HomePage extends StatelessWidget {
+  final String title;
+
+  HomePage(this.title);
+
   @override
   Widget build(BuildContext context) {
     return new Container(
