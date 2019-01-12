@@ -21,6 +21,8 @@ dependencies:
   flutter_circular_chart: ^0.1.0
   intl: ^0.15.7
   charts_flutter: ^0.5.0
+  pedometer: ^0.0.5
+  sqflite: any
 
 dev_dependencies:
   flutter_test:
