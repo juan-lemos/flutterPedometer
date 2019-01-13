@@ -4,12 +4,19 @@ import './Commons/CircularPorogress.dart';
 import './Commons/MainProgressText.dart';
 
 class DayStepsCard extends StatelessWidget {
+  final goalSteps;
+  final steps;
+
+  DayStepsCard({this.steps, this.goalSteps});
+
   @override
   Widget build(BuildContext context) {
     return new CustomCard(
       child: CircularPorogress(
           height: 200,
-          child: MainProgressText(goalSteps: 100000, steps: 25000)),
+          percentage: this.steps / this.goalSteps * 100,
+          child:
+              MainProgressText(goalSteps: this.goalSteps, steps: this.steps)),
       height: 225,
     );
   }

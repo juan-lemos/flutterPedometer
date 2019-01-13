@@ -5,9 +5,10 @@ import 'package:flutter_circular_chart/flutter_circular_chart.dart';
 class CircularPorogress extends StatelessWidget {
   final Widget child;
   //reference 300 circleSize, 200 orange circle, 250 container height
+  final double percentage;
   final double height;
 
-  CircularPorogress({this.child, this.height});
+  CircularPorogress({this.child, this.height, this.percentage});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class CircularPorogress extends StatelessWidget {
               new CircularStackEntry(
                 <CircularSegmentEntry>[
                   new CircularSegmentEntry(
-                    25.00,
+                    this.percentage,
                     CustomColors.completeColor,
                     rankKey: 'completed',
                   ),

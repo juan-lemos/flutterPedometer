@@ -14,9 +14,13 @@ class HomePage extends StatelessWidget {
     return new Container(
       child: SafeArea(
           child: Center(
-              child: Column(
+              child: ListView(
+        padding: const EdgeInsets.only(bottom: 20),
         children: <Widget>[
-          DayStepsCard(),
+          DayStepsCard(
+            goalSteps: 6000,
+            steps: 1204,
+          ),
           Container(
             height: 10,
           ),
