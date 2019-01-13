@@ -5,29 +5,29 @@ import 'package:flutter_pedometer/Constants/Gender.dart' as Gender;
 ///
 ///@param height               The height in metres.
 ///@param age                  The date of birth.
-///@param weight               The weight of the user.
+///@param weight               The weight of the user in cetimenters.
 ///@param gender               The gender of the user.
 ///@param durationInSeconds    The duration of the activity in seconds.
 ///@param stepsTaken           The steps taken.
 ///@param strideLengthInMetres The stride length of the user
 ///@return The number of calories burnt (kCal)
 double calculateEnergyExpenditure(
-    double height,
-    DateTime age,
-    double weight,
-    String gender,
-    int durationInSeconds,
-    int stepsTaken,
-    double strideLengthInMetres) {
+  double height,
+  DateTime age,
+  double weight,
+  String gender,
+  int durationInSeconds,
+  int stepsTaken,
+) {
   int ageCalculated = getAgeFromDateOfBirth(age);
 
   double harrisBenedictRmR = convertKilocaloriesToMlKmin(
-      harrisBenedictRmr(
-          gender, weight, ageCalculated, convertMetresToCentimetre(height)),
-      weight);
-
-  double kmTravelled =
-      calculateDistanceTravelledInKM(stepsTaken, strideLengthInMetres);
+      harrisBenedictRmr(gender, weight, ageCalculated, height), weight);
+//https://www.wikihow.com/Measure-Stride-Length
+  double calculatedStrideLengthInMeters =
+      centimeterToMeters(gender == Gender.FEMALE ? 0.413 : 0.415 * height);
+  double kmTravelled = calculateDistanceTravelledInKM(
+      stepsTaken, calculatedStrideLengthInMeters);
   double hours = secondsToHours(durationInSeconds);
   double speedInMph = kilometersToMiles(kmTravelled) / hours;
   double metValue = getMetForActivity(speedInMph);
@@ -36,14 +36,6 @@ double calculateEnergyExpenditure(
 
   double correctedMets = metValue * (constant / harrisBenedictRmR);
   return correctedMets * hours * weight;
-}
-
-double secondsToHours(int seconds) {
-  return seconds / 60 / 60;
-}
-
-double kilometersToMiles(double kilometers) {
-  return kilometers * 0.62137;
 }
 
 /// Gets a users age from a date. Only takes into account years.
@@ -80,10 +72,6 @@ double convertKilocaloriesToMlKmin(double kilocalories, double weightKgs) {
   kcalMin /= 5;
 
   return ((kcalMin / (weightKgs)) * 1000);
-}
-
-double convertMetresToCentimetre(double metres) {
-  return metres * 100;
 }
 
 double calculateDistanceTravelledInKM(
@@ -138,4 +126,16 @@ double harrisBenedictRmr(
         (13.7516 * weightKg) -
         (6.7550 * age);
   }
+}
+
+double secondsToHours(int seconds) {
+  return seconds / 60 / 60;
+}
+
+double kilometersToMiles(double kilometers) {
+  return kilometers * 0.62137;
+}
+
+double centimeterToMeters(double cm) {
+  return cm / 100;
 }
