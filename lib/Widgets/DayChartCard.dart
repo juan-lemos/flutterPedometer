@@ -3,15 +3,30 @@ import 'package:flutter_pedometer/Widgets/Commons/CustomCard.dart';
 import 'package:flutter_pedometer/Widgets/Commons/BarChart.dart';
 
 class DayChartCard extends StatelessWidget {
+  final List<ChartItem> stepsByHour;
+
+  DayChartCard._(this.stepsByHour);
+
+  factory DayChartCard({@required List<int> stepsByHour}) {
+    int i = 0;
+    List<ChartItem> valuesWithIds = [];
+    stepsByHour.forEach((value) {
+      String label = (i + 2) % 12 == 0 ? '${i + 2}' : '';
+      label = i == 0 ? '0' : label;
+      ChartItem charItem =
+          new ChartItem(id: '$i', amount: value, labelName: label);
+      valuesWithIds.add(charItem);
+      i += 2;
+    });
+    return new DayChartCard._(valuesWithIds);
+  }
+
   @override
   Widget build(BuildContext context) {
     return new CustomCard(
       child: Container(
         child: BarChart(
-          chartItems: [
-            ChartItem(id: '1', amount: 400, labelName: 'my name'),
-            ChartItem(id: '2', amount: 50)
-          ],
+          chartItems: this.stepsByHour,
           seriesId: 'items142',
         ),
         padding: EdgeInsets.only(left: 20, right: 20, bottom: 5, top: 0),

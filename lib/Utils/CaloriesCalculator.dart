@@ -5,7 +5,7 @@ import 'package:flutter_pedometer/Constants/Gender.dart' as Gender;
 ///
 ///@param height               The height in metres.
 ///@param age                  The date of birth.
-///@param weight               The weight of the user in cetimenters.
+///@param weight               The weight of the user.
 ///@param gender               The gender of the user.
 ///@param durationInSeconds    The duration of the activity in seconds.
 ///@param stepsTaken           The steps taken.
@@ -23,9 +23,8 @@ double calculateEnergyExpenditure(
 
   double harrisBenedictRmR = convertKilocaloriesToMlKmin(
       harrisBenedictRmr(gender, weight, ageCalculated, height), weight);
-//https://www.wikihow.com/Measure-Stride-Length
   double calculatedStrideLengthInMeters =
-      centimeterToMeters(gender == Gender.FEMALE ? 0.413 : 0.415 * height);
+      calculateStepToMeters(1, height, gender);
   double kmTravelled = calculateDistanceTravelledInKM(
       stepsTaken, calculatedStrideLengthInMeters);
   double hours = secondsToHours(durationInSeconds);
@@ -138,4 +137,16 @@ double kilometersToMiles(double kilometers) {
 
 double centimeterToMeters(double cm) {
   return cm / 100;
+}
+
+double meterToCentimer(double m) {
+  return m * 100;
+}
+
+double calculateStepToMeters(int steps, double heightInMeters, String gender) {
+//https://www.wikihow.com/Measure-Stride-Length
+  return steps *
+      centimeterToMeters(gender == Gender.FEMALE
+          ? 0.413
+          : 0.415 * meterToCentimer(heightInMeters));
 }

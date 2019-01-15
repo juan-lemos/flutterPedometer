@@ -4,6 +4,12 @@ import 'package:flutter_pedometer/Constants/pedometer_icons.dart'
     as CustomIcons;
 
 class ResumeThreeElements extends StatelessWidget {
+  final int distance;
+  final int energy;
+  final int time;
+
+  ResumeThreeElements({this.distance, this.energy, this.time});
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -11,24 +17,24 @@ class ResumeThreeElements extends StatelessWidget {
         Expanded(
           child: IconMessureUnit(
             icon: Icons.linear_scale,
-            messureUnit: 'Kcal',
-            numberValue: '532,333',
+            messureUnit: 'm',
+            numberValue: this.distance.toString(),
           ),
           flex: 1,
         ),
         Expanded(
           child: IconMessureUnit(
             icon: CustomIcons.Pedometer.fire,
-            messureUnit: 'Kcal',
-            numberValue: '155,220',
+            messureUnit: 'kcal',
+            numberValue: this.energy.toString(),
           ),
           flex: 1,
         ),
         Expanded(
           child: IconMessureUnit(
             icon: Icons.timer,
-            messureUnit: 'Kcal',
-            numberValue: '744:00034233',
+            messureUnit: 'min',
+            numberValue: this.time.toString(),
           ),
           flex: 1,
         ),
