@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pedometer/Widgets/Commons/CustomCard.dart';
 import 'package:flutter_pedometer/Widgets/Commons/BarChart.dart';
+import 'package:flutter_pedometer/Models/ChartItem.dart';
 
 class DayChartCard extends StatelessWidget {
   final List<ChartItem> stepsByHour;
@@ -27,7 +28,7 @@ class DayChartCard extends StatelessWidget {
       child: Container(
         child: BarChart(
           chartItems: this.stepsByHour,
-          seriesId: 'items142',
+          seriesId: 'dayPerformance',
         ),
         padding: EdgeInsets.only(left: 20, right: 20, bottom: 5, top: 0),
       ),

@@ -3,6 +3,7 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter_pedometer/Constants/Colors.dart' as CustomColors;
 import 'package:flutter_pedometer/Constants/Fonts.dart' as Fonts;
 import 'package:flutter_pedometer/Utils/Colors.dart';
+import 'package:flutter_pedometer/Models/ChartItem.dart';
 
 class BarChart extends StatelessWidget {
   final List<charts.Series> seriesList;
@@ -59,15 +60,6 @@ class BarChart extends StatelessWidget {
       ),
     );
   }
-}
-
-class ChartItem {
-  final String id;
-  final int amount;
-  final String labelName;
-  final Color color;
-  ChartItem(
-      {@required this.id, @required this.amount, this.labelName, this.color});
 }
 
 List<charts.Series<ChartItem, String>> transmforToSeriesList(

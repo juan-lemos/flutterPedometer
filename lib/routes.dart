@@ -3,6 +3,7 @@ library routes;
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_pedometer/Screens/home_page.dart';
+import 'package:flutter_pedometer/Screens/week_report_page.dart';
 import 'Models/app_state.dart';
 
 void updateRoute(AppState state, BuildContext context) {
@@ -15,7 +16,7 @@ Map<String, WidgetBuilder> getRoutes(context, store) {
   return {
     '/': (BuildContext context) => new StoreBuilder<AppState>(
           builder: (context, store) {
-            return new HomePage("");
+            return new WeekReportPage("");
           },
         ),
     // '/login': (BuildContext context) => new StoreBuilder<AppState>(

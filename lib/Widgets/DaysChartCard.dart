@@ -3,8 +3,13 @@ import 'package:flutter_pedometer/Constants/Colors.dart' as CustomColors;
 import 'package:flutter_pedometer/Constants/Fonts.dart' as Fonts;
 import 'package:flutter_pedometer/Widgets/Commons/CustomCard.dart';
 import 'package:flutter_pedometer/Widgets/Commons/BarChart.dart';
+import 'package:flutter_pedometer/Models/ChartItem.dart';
 
 class DaysChartCard extends StatelessWidget {
+  final List<ChartItem> chartItems;
+
+  DaysChartCard({@required this.chartItems});
+
   @override
   Widget build(BuildContext context) {
     return new CustomCard(
@@ -12,11 +17,8 @@ class DaysChartCard extends StatelessWidget {
         child: Column(children: <Widget>[
           Container(
             child: BarChart(
-              chartItems: [
-                ChartItem(id: '1', amount: 400, labelName: 'M'),
-                ChartItem(id: '2', amount: 50, labelName: 'T')
-              ],
-              seriesId: 'items142',
+              chartItems: this.chartItems,
+              seriesId: 'daysPerformance',
               renderPrimaryAxis: true,
               labelOffsetFromAxisPx: 3,
             ),
