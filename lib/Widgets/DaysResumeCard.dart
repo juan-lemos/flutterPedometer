@@ -13,13 +13,15 @@ class DaysResumeCard extends StatelessWidget {
   final int distance;
   final int energy;
   final int time;
+  final String message;
 
   DaysResumeCard(
       {@required this.goalSteps,
       @required this.totalSteps,
       @required this.distance,
       @required this.energy,
-      @required this.time});
+      @required this.time,
+      this.message});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,7 @@ class DaysResumeCard extends StatelessWidget {
                       children: <Widget>[
                         Column(
                           children: <Widget>[
-                            Text('Monday\nOct 22',
+                            Text('${this.message}',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   color: CustomColors.white,

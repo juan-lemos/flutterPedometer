@@ -18,7 +18,7 @@ List<ChartItem> daysListToChartItems({@required List<int> daysSteps}) {
   ]; //TODO constans and translate
   double average = getIntListAverage(daysSteps);
   List<ChartItem> newList = [];
-  for (var i = 0; i < 7; i++) {
+  for (var i = 0; i < daysList.length; i++) {
     newList.add(ChartItem(
         amount: daysSteps[i],
         id: '$i',

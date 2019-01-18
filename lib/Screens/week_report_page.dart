@@ -17,49 +17,75 @@ class WeekReportPage extends StatelessWidget {
   final DateTime age = new DateTime.utc(1996, 1, 1);
   final double weight = 70;
   final List<int> daysSteps = [1000, 400, 6000, 3000, 3200, 5000, 8000];
+  final List<int> times = [143, 57, 857, 428, 47, 714, 1142];
+  final List<String> messages = [
+    'Monday\nOct 22',
+    'Tuesday\nOct 23',
+    'Wednesday\nOct 24',
+    'Thursday\nOct 25',
+    'Friday\nOct 26',
+    'Saturday\nOct 27',
+    'Sunday\nOct 28',
+  ];
   WeekReportPage(this.title);
 
   @override
   Widget build(BuildContext context) {
     var allSteps = this.daysSteps.reduce((curr, next) => curr + next);
+    List<Widget> widgetsList = <Widget>[
+      DaysChartCard(
+          chartItems:
+              ChartUtils.daysListToChartItems(daysSteps: this.daysSteps)),
+      Container(
+        height: 10,
+      ),
+      DayResumeCard(
+          distance: CaloriesCalculator.calculateStepToMeters(
+                  allSteps, this.height, this.gender)
+              .toInt(),
+          time: this.time,
+          energy: CaloriesCalculator.calculateEnergyExpenditure(
+            this.height,
+            this.age,
+            this.weight,
+            this.gender,
+            this.time * 60,
+            allSteps,
+          ).toInt()),
+      Container(
+        height: 10,
+      )
+    ];
+
+    for (int i = 0; i < daysSteps.length; i++) {
+      widgetsList.add(DaysResumeCard(
+          distance: CaloriesCalculator.calculateStepToMeters(
+                  daysSteps[i], this.height, this.gender)
+              .toInt(),
+          energy: CaloriesCalculator.calculateEnergyExpenditure(
+                  this.height,
+                  this.age,
+                  this.weight,
+                  this.gender,
+                  this.time * 60,
+                  daysSteps[i])
+              .toInt(),
+          goalSteps: this.goalSteps,
+          message: this.messages[i],
+          time: times[i],
+          totalSteps: daysSteps[i]));
+      widgetsList.add(Container(
+        height: 10,
+      ));
+    }
+
     print(allSteps);
     return new Container(
       child: SafeArea(
           child: Center(
               child: ListView(
         padding: const EdgeInsets.only(bottom: 20),
-        children: <Widget>[
-          DaysChartCard(
-              chartItems:
-                  ChartUtils.daysListToChartItems(daysSteps: this.daysSteps)),
-          Container(
-            height: 10,
-          ),
-          DayResumeCard(
-              distance: CaloriesCalculator.calculateStepToMeters(
-                      allSteps, this.height, this.gender)
-                  .toInt(),
-              time: this.time,
-              energy: CaloriesCalculator.calculateEnergyExpenditure(
-                this.height,
-                this.age,
-                this.weight,
-                this.gender,
-                this.time * 60,
-                allSteps,
-              ).toInt()),
-          Container(
-            height: 10,
-          ),
-//           DaysResumeCard(
-// goalSteps,
-// totalSteps,
-// distance,
-// energy,
-// time:this.time,
-
-//           )
-        ],
+        children: widgetsList,
       ))),
       color: CustomColors.backgroundColor,
     );
