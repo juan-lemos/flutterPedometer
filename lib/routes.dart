@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_pedometer/Screens/home_page.dart';
 import 'package:flutter_pedometer/Screens/week_report_page.dart';
-import 'Models/app_state.dart';
+import 'Models/TODOapp_state.dart';
 
 void updateRoute(AppState state, BuildContext context) {
   // if (state.currentUser != null) {

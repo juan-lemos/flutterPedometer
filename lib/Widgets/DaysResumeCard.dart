@@ -8,6 +8,19 @@ import 'package:flutter_pedometer/Constants/pedometer_icons.dart'
     as CustomIcons;
 
 class DaysResumeCard extends StatelessWidget {
+  final int goalSteps;
+  final int totalSteps;
+  final int distance;
+  final int energy;
+  final int time;
+
+  DaysResumeCard(
+      {@required this.goalSteps,
+      @required this.totalSteps,
+      @required this.distance,
+      @required this.energy,
+      @required this.time});
+
   @override
   Widget build(BuildContext context) {
     return new CustomCard(
@@ -36,7 +49,9 @@ class DaysResumeCard extends StatelessWidget {
                           child: Row(
                             children: <Widget>[
                               CircularPorogress(
-                                  percentage: 42,
+                                  percentage: this.totalSteps /
+                                      this.goalSteps *
+                                      100.toInt(),
                                   height: 70,
                                   child: Icon(
                                     CustomIcons
@@ -47,7 +62,8 @@ class DaysResumeCard extends StatelessWidget {
                               Container(width: 10),
                               Column(
                                 children: <Widget>[
-                                  Text('25,000 / 100,000',
+                                  Text(
+                                      '${this.totalSteps.toString()} / ${this.goalSteps.toString()}',
                                       style: TextStyle(
                                         color: CustomColors.white,
                                         fontSize: 20,
@@ -73,9 +89,9 @@ class DaysResumeCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                     ))),
             ResumeThreeElements(
-              distance: 32,
-              energy: 42,
-              time: 32,
+              distance: this.distance,
+              energy: this.energy,
+              time: this.time,
             )
           ],
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

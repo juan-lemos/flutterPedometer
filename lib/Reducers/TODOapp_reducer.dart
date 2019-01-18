@@ -1,4 +1,4 @@
-import 'package:flutter_pedometer/Models/app_state.dart';
+import 'package:flutter_pedometer/Models/TODOapp_state.dart';
 // import 'package:me_suite/reducers/auth_reducer.dart';
 // import 'package:me_suite/reducers/counter_reducer.dart';
 

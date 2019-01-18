@@ -10,18 +10,19 @@ import 'package:flutter_pedometer/Utils/ChartUtils.dart' as ChartUtils;
 
 class WeekReportPage extends StatelessWidget {
   final String title;
-  final int steps = 1204;
   final int goalSteps = 6000;
   final double height = 1.7;
   final String gender = Gender.MALE;
-  final int time = 10;
+  final int time = 3800;
   final DateTime age = new DateTime.utc(1996, 1, 1);
   final double weight = 70;
-  final List<int> daysProgress = [1000, 400, 6000, 3000, 3200, 5000, 8000];
+  final List<int> daysSteps = [1000, 400, 6000, 3000, 3200, 5000, 8000];
   WeekReportPage(this.title);
 
   @override
   Widget build(BuildContext context) {
+    var allSteps = this.daysSteps.reduce((curr, next) => curr + next);
+    print(allSteps);
     return new Container(
       child: SafeArea(
           child: Center(
@@ -29,15 +30,14 @@ class WeekReportPage extends StatelessWidget {
         padding: const EdgeInsets.only(bottom: 20),
         children: <Widget>[
           DaysChartCard(
-            chartItems:
-                ChartUtils.daysListToChartItems(daysSteps: daysProgress),
-          ),
+              chartItems:
+                  ChartUtils.daysListToChartItems(daysSteps: this.daysSteps)),
           Container(
             height: 10,
           ),
           DayResumeCard(
               distance: CaloriesCalculator.calculateStepToMeters(
-                      this.steps, this.height, this.gender)
+                      allSteps, this.height, this.gender)
                   .toInt(),
               time: this.time,
               energy: CaloriesCalculator.calculateEnergyExpenditure(
@@ -46,12 +46,19 @@ class WeekReportPage extends StatelessWidget {
                 this.weight,
                 this.gender,
                 this.time * 60,
-                this.steps,
+                allSteps,
               ).toInt()),
           Container(
             height: 10,
           ),
-          DaysResumeCard()
+//           DaysResumeCard(
+// goalSteps,
+// totalSteps,
+// distance,
+// energy,
+// time:this.time,
+
+//           )
         ],
       ))),
       color: CustomColors.backgroundColor,
