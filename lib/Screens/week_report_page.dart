@@ -67,19 +67,18 @@ class WeekReportPage extends StatelessWidget {
                   this.age,
                   this.weight,
                   this.gender,
-                  this.time * 60,
+                  this.times[i] * 60,
                   daysSteps[i])
               .toInt(),
           goalSteps: this.goalSteps,
           message: this.messages[i],
-          time: times[i],
+          time: this.times[i],
           totalSteps: daysSteps[i]));
       widgetsList.add(Container(
         height: 10,
       ));
     }
 
-    print(allSteps);
     return new Container(
       child: SafeArea(
           child: Center(
