@@ -2,11 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_pedometer/Models/ChartItem.dart';
 import 'package:flutter_pedometer/Constants/Colors.dart' as Colors;
 
-double getIntListAverage(List<int> numbers) {
-  return numbers.reduce((curr, next) => curr + next) / numbers.length;
-}
-
-List<ChartItem> daysListToChartItems({@required List<int> daysSteps}) {
+List<ChartItem> daysListToChartItems(
+    {@required List<int> daysSteps, @required int goalSteps}) {
   List<String> daysList = [
     'M',
     'T',
@@ -16,13 +13,12 @@ List<ChartItem> daysListToChartItems({@required List<int> daysSteps}) {
     'S',
     'S'
   ]; //TODO constans and translate
-  double average = getIntListAverage(daysSteps);
   List<ChartItem> newList = [];
   for (var i = 0; i < daysList.length; i++) {
     newList.add(ChartItem(
         amount: daysSteps[i],
         id: '$i',
-        color: daysSteps[i] < average
+        color: daysSteps[i] < goalSteps
             ? Colors.incompleteColor
             : Colors.completeColor,
         labelName: daysList[i]));

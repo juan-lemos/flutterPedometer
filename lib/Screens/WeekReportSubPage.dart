@@ -8,8 +8,7 @@ import 'package:flutter_pedometer/Utils/CaloriesCalculator.dart'
 import 'package:flutter_pedometer/Constants/Gender.dart' as Gender;
 import 'package:flutter_pedometer/Utils/ChartUtils.dart' as ChartUtils;
 
-class WeekReportPage extends StatelessWidget {
-  final String title;
+class WeekReportSubPage extends StatelessWidget {
   final int goalSteps = 6000;
   final double height = 1.7;
   final String gender = Gender.MALE;
@@ -27,15 +26,15 @@ class WeekReportPage extends StatelessWidget {
     'Saturday\nOct 27',
     'Sunday\nOct 28',
   ];
-  WeekReportPage(this.title);
+  WeekReportSubPage();
 
   @override
   Widget build(BuildContext context) {
     var allSteps = this.daysSteps.reduce((curr, next) => curr + next);
     List<Widget> widgetsList = <Widget>[
       DaysChartCard(
-          chartItems:
-              ChartUtils.daysListToChartItems(daysSteps: this.daysSteps)),
+          chartItems: ChartUtils.daysListToChartItems(
+              daysSteps: this.daysSteps, goalSteps: this.goalSteps)),
       Container(
         height: 10,
       ),
@@ -80,12 +79,11 @@ class WeekReportPage extends StatelessWidget {
     }
 
     return new Container(
-      child: SafeArea(
-          child: Center(
-              child: ListView(
+      child: Center(
+          child: ListView(
         padding: const EdgeInsets.only(bottom: 20),
         children: widgetsList,
-      ))),
+      )),
       color: CustomColors.backgroundColor,
     );
   }

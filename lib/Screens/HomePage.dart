@@ -8,7 +8,6 @@ import 'package:flutter_pedometer/Utils/CaloriesCalculator.dart'
 import 'package:flutter_pedometer/Constants/Gender.dart' as Gender;
 
 class HomePage extends StatelessWidget {
-  final String title;
   final int steps = 1204;
   final int goalSteps = 6000;
   final double height = 1.7;
@@ -30,7 +29,7 @@ class HomePage extends StatelessWidget {
     0,
     0,
   ];
-  HomePage(this.title);
+  HomePage();
 
   @override
   Widget build(BuildContext context) {
