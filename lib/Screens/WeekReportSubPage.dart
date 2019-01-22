@@ -12,11 +12,10 @@ class WeekReportSubPage extends StatelessWidget {
   final int goalSteps = 6000;
   final double height = 1.7;
   final String gender = Gender.MALE;
-  final int time = 3800;
   final DateTime age = new DateTime.utc(1996, 1, 1);
   final double weight = 70;
   final List<int> daysSteps = [1000, 400, 6000, 3000, 3200, 5000, 8000];
-  final List<int> times = [143, 57, 857, 428, 47, 714, 1142];
+  final List<int> times = [60, 57, 120, 60, 60, 50, 85];
   final List<String> messages = [
     'Monday\nOct 22',
     'Tuesday\nOct 23',
@@ -31,6 +30,7 @@ class WeekReportSubPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var allSteps = this.daysSteps.reduce((curr, next) => curr + next);
+    var totalTime = this.times.reduce((curr, next) => curr + next);
     List<Widget> widgetsList = <Widget>[
       DaysChartCard(
           chartItems: ChartUtils.daysListToChartItems(
@@ -42,13 +42,13 @@ class WeekReportSubPage extends StatelessWidget {
           distance: CaloriesCalculator.calculateStepToMeters(
                   allSteps, this.height, this.gender)
               .toInt(),
-          time: this.time,
+          time: totalTime,
           energy: CaloriesCalculator.calculateEnergyExpenditure(
             this.height,
             this.age,
             this.weight,
             this.gender,
-            this.time * 60,
+            totalTime * 60,
             allSteps,
           ).toInt()),
       Container(
