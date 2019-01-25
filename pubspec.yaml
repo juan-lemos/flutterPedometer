@@ -23,6 +23,7 @@ dependencies:
   charts_flutter: ^0.5.0
   pedometer: ^0.0.5
   sqflite: any
+  flutter_statusbarcolor: ^0.1.4+1
 
 dev_dependencies:
   flutter_test:
