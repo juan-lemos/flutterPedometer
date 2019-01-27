@@ -53,30 +53,35 @@ class DaysReportsPage extends StatelessWidget {
             )),
       ),
       body: WeekReportSubPage(),
-      bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              icon: new Container(
-                height: 14,
-              ),
-              title: Text('Week',
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontFamily: Fonts.secondaryFont,
-                      fontWeight: FontWeight.w500))),
-          BottomNavigationBarItem(
-              icon: new Container(
-                height: 14,
-              ),
-              title: Text('Month',
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontFamily: Fonts.secondaryFont,
-                      fontWeight: FontWeight.w500))),
-        ],
-        fixedColor: CustomColors.strongCompleteColor,
-        iconSize: 0.0,
-      ),
+      bottomNavigationBar: new Theme(
+          data: Theme.of(context).copyWith(
+            // sets the background color of the `BottomNavigationBar`
+            canvasColor: CustomColors.backgroundColor,
+          ), // sets the inactive color of the `BottomNavigationBar`
+          child: BottomNavigationBar(
+            items: <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                  icon: new Container(
+                    height: 14,
+                  ),
+                  title: Text('Week',
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontFamily: Fonts.secondaryFont,
+                          fontWeight: FontWeight.w500))),
+              BottomNavigationBarItem(
+                  icon: new Container(
+                    height: 14,
+                  ),
+                  title: Text('Month',
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontFamily: Fonts.secondaryFont,
+                          fontWeight: FontWeight.w500))),
+            ],
+            fixedColor: CustomColors.strongCompleteColor,
+            iconSize: 0.0,
+          )),
     );
   }
 }
